@@ -89,7 +89,7 @@ export default function BrandScroller() {
     if (next >= el.scrollWidth / 2) next -= el.scrollWidth / 2;
     if (next < 0) next += el.scrollWidth / 2;
     el.scrollTo({ left: next, behavior: 'smooth' });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // deps intentionally empty — refs are stable
 
   return (
     <section className="brands-section">
@@ -110,7 +110,6 @@ export default function BrandScroller() {
           </svg>
         </button>
 
-        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
         <div
           ref={outerRef}
           className="brands-ticker-outer"

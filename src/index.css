@@ -1,0 +1,76 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ice: #E0F7FA;
+  --ice2: #B2EBF2;
+  --cold: #00BCD4;
+  --deep: #006064;
+  --warm: #FF6F00;
+  --warm2: #FFA726;
+  --white: #FFFFFF;
+  --dark: #0D1B2A;
+  --gray: #F5F7FA;
+  --text: #1A2A3A;
+  --muted: #607D8B;
+  --radius: 16px;
+  --shadow: 0 8px 32px rgba(0, 96, 100, 0.13);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Extra bottom padding on mobile so content clears the fixed action bar */
+@media (max-width: 768px) {
+  body { padding-bottom: 64px; }
+
+  /* Gallery dots get a larger invisible tap area */
+  .gallery-dot { padding: 10px 6px; }
+
+  /* Navbar hamburger & links */
+  .nav-link { min-height: 44px; display: flex; align-items: center; }
+  .hamburger { min-height: 44px; min-width: 44px; }
+}
+
+/* Contact / Remote Controls order swap */
+.contact-remote-wrapper { display: flex; flex-direction: column; }
+
+@media (max-width: 700px) {
+  .remote-slot  { order: 2; }
+  .contact-slot { order: 1; }
+
+  /* Reduce section padding so less scrolling on mobile */
+  .testi-section { padding: 1.2rem 0 1rem; }
+  .why-section   { padding: 1.5rem 1rem; }
+
+  /* Touch press feedback — instant visual response when tapped */
+  .btn-primary:active,
+  .btn-outline:active,
+  .submit-btn:active,
+  .nav-cta:active,
+  .mobile-nav-link:active,
+  .nudge-book:active,
+  .nudge-wa:active {
+    opacity: 0.75;
+    transform: scale(0.97);
+  }
+  .mbar-btn:active {
+    background: rgba(255,255,255,0.1) !important;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

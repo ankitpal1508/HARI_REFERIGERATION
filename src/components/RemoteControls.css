@@ -1,0 +1,108 @@
+/* ── Section — rich teal gradient ── */
+.remotes-section {
+  background: linear-gradient(135deg, #004D5B 0%, #006064 40%, #00838F 70%, #0097A7 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.remotes-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(255,255,255,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 30%, rgba(0,188,212,0.14) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.remotes-section::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+}
+
+.remotes-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.8rem 2rem;
+  position: relative; z-index: 1;
+}
+
+/* ── Header ── */
+.remotes-head { text-align: center; margin-bottom: 2rem; }
+
+.remotes-label {
+  font-weight: 700; font-size: 0.78rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.4rem;
+}
+
+.remotes-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.2rem; font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  margin-bottom: 0.4rem;
+}
+
+.remotes-divider {
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,111,0,0.8));
+  border-radius: 4px;
+  margin: 0.5rem auto 0.8rem;
+}
+
+.remotes-sub {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ── Three offer badges ── */
+.remotes-badges {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.remotes-badge {
+  display: flex; align-items: center; gap: 16px;
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.24);
+  border-radius: 20px;
+  padding: 1.2rem 1.8rem;
+  flex: 1; min-width: 220px; max-width: 320px;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.remotes-badge:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+}
+
+.remotes-badge-icon { font-size: 2rem; flex-shrink: 0; }
+
+.remotes-badge-title {
+  font-weight: 800; font-size: 1rem;
+  color: #FFFFFF; line-height: 1.2;
+  margin-bottom: 3px;
+}
+.remotes-badge-desc {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.58);
+  line-height: 1.45;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .remotes-badges { flex-direction: column; align-items: stretch; }
+  .remotes-badge { max-width: 100%; }
+}
+@media (max-width: 480px) {
+  .remotes-title { font-size: 1.7rem; }
+  .remotes-badge { padding: 1rem 1.2rem; }
+}

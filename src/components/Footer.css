@@ -1,0 +1,80 @@
+.footer { background: var(--dark); color: #90A4AE; position: relative; }
+.footer-inner { max-width: 1100px; margin: 0 auto; padding: 1.2rem 2rem; }
+.footer-top {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.9rem;
+  padding-bottom: 0.9rem; border-bottom: 1px solid #1a3a4a;
+}
+.footer-logo-block {
+  display: flex; align-items: center; gap: 12px;
+}
+.footer-logo-text {
+  display: flex; flex-direction: column;
+}
+.footer-logo-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.45rem; font-weight: 800;
+  color: #FFFFFF; letter-spacing: 2px;
+  line-height: 1.1; white-space: nowrap;
+}
+.footer-logo-rule {
+  height: 1.5px;
+  background: linear-gradient(to right, rgba(0,188,212,0.7), transparent);
+  margin: 3px 0 2px;
+  border-radius: 1px;
+}
+.footer-logo-tagline {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.footer-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+.footer-link {
+  background: none; border: none; cursor: pointer;
+  color: #90A4AE; font-family: 'Nunito', sans-serif;
+  font-size: 0.87rem; transition: color 0.2s;
+}
+.footer-link:hover { color: var(--cold); }
+.footer-bottom { text-align: center; font-size: 0.8rem; }
+.footer-sub  { font-size: 0.72rem; color: #546E7A; margin-top: 3px; }
+.footer-copy {
+  font-size: 0.63rem; color: #37474F; margin-top: 8px;
+  line-height: 1.5; max-width: 700px; margin-left: auto; margin-right: auto;
+  padding-top: 8px; border-top: 1px solid #1a3a4a;
+}
+
+@keyframes wa-pulse {
+  0%   { box-shadow: 0 6px 20px rgba(37,211,102,0.5), 0 0 0 0    rgba(37,211,102,0.45); }
+  60%  { box-shadow: 0 6px 20px rgba(37,211,102,0.5), 0 0 0 16px rgba(37,211,102,0);    }
+  100% { box-shadow: 0 6px 20px rgba(37,211,102,0.5), 0 0 0 0    rgba(37,211,102,0);    }
+}
+
+.whatsapp-float {
+  position: fixed; bottom: 24px; right: 24px; z-index: 200;
+  background: #25D366; color: white;
+  width: 54px; height: 54px; border-radius: 50%;
+  font-size: 1.5rem; text-decoration: none;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s;
+  animation: wa-pulse 2.5s ease-out infinite;
+}
+.whatsapp-float:hover { transform: scale(1.12); animation: none; box-shadow: 0 6px 20px rgba(37,211,102,0.5); }
+
+.call-float {
+  position: fixed; bottom: 88px; right: 24px; z-index: 200;
+  background: #0097A7; color: white;
+  width: 54px; height: 54px; border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0,151,167,0.5);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s;
+}
+.call-float:hover { transform: scale(1.12); }
+
+/* Hide floating buttons on mobile — replaced by the bottom action bar */
+@media (max-width: 768px) {
+  .whatsapp-float, .call-float { display: none; }
+}

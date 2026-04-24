@@ -1,0 +1,225 @@
+/* ── Gallery section ── */
+.gallery-bg {
+  background: linear-gradient(135deg, #E3F7FA 0%, #EAF4FB 50%, #E8F5E9 100%);
+  padding: 2.5rem 0 2rem;
+}
+
+.gallery-header-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem 1.4rem;
+}
+
+.gallery-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.3rem; font-weight: 700;
+  color: #0D1B2A; margin-bottom: 0.5rem;
+}
+
+.gallery-divider {
+  width: 60px; height: 4px;
+  background: linear-gradient(90deg, #00BCD4, #FF6F00);
+  border-radius: 4px; margin: 0.5rem 0 0.9rem;
+}
+
+.gallery-sub {
+  color: #546E7A; font-size: 0.95rem;
+  line-height: 1.7; max-width: 520px;
+}
+
+/* ── Stage: left-arrow | scroller | right-arrow ── */
+.gallery-stage {
+  display: grid;
+  grid-template-columns: 52px 1fr 52px;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Arrow buttons ── */
+.gallery-arrow {
+  width: 40px; height: 40px;
+  border-radius: 50%; border: none;
+  background: white;
+  color: #0D1B2A;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,96,100,0.2);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+  z-index: 5;
+  justify-self: center;
+}
+.gallery-arrow:hover {
+  background: #00BCD4;
+  color: white;
+  transform: scale(1.12);
+  box-shadow: 0 6px 20px rgba(0,188,212,0.45);
+}
+
+/* ── Scrollable ticker ── */
+.gallery-ticker-outer {
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+.gallery-ticker-outer::-webkit-scrollbar { display: none; }
+.gallery-ticker-outer:active { cursor: grabbing; }
+
+.gallery-ticker-track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  padding: 6px 20px 12px;
+  user-select: none;
+}
+
+/* ── Individual card ── */
+.gallery-card {
+  width: 300px; height: 220px;
+  flex-shrink: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  background: #0D1B2A;
+  box-shadow: 0 6px 24px rgba(0,96,100,0.18);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(0,96,100,0.28);
+}
+
+.gallery-card-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s;
+  display: block;
+  pointer-events: none;
+}
+.gallery-card:hover .gallery-card-img { transform: scale(1.06); }
+
+/* ── Illustrated placeholder ── */
+.gallery-card-illustration {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px; position: relative; overflow: hidden;
+}
+.gallery-card-dots {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 16px 16px; pointer-events: none;
+}
+.gallery-card-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 45%, rgba(0,188,212,0.12), transparent 65%);
+  pointer-events: none;
+}
+.gallery-icon-ring {
+  position: relative; z-index: 1;
+  width: 80px; height: 80px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+}
+.gallery-card-name {
+  position: relative; z-index: 1;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem; font-weight: 800;
+  color: #fff; letter-spacing: 0.5px; text-align: center;
+}
+.gallery-card-badge {
+  position: relative; z-index: 1;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: #B2EBF2; opacity: 0.85;
+}
+
+/* ── Service type badge — always visible top-left ── */
+.gallery-card-tag {
+  position: absolute; top: 12px; left: 12px; z-index: 10;
+  background: linear-gradient(135deg, #006064, #00ACC1);
+  color: #ffffff;
+  font-size: 0.68rem; font-weight: 800;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 20px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.45), 0 0 0 1.5px rgba(255,255,255,0.15);
+  white-space: nowrap;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* ── Caption overlay ── */
+.gallery-card-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(
+    transparent 0%,
+    rgba(0,10,20,0.6) 30%,
+    rgba(0,10,20,0.95) 100%
+  );
+  padding: 2.2rem 1rem 1rem;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.gallery-card:hover .gallery-card-caption {
+  transform: translateY(0);
+}
+
+.gallery-caption-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem; font-weight: 800;
+  color: #4DD0E1; letter-spacing: 0.5px;
+  margin-bottom: 2px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+.gallery-caption-location {
+  font-size: 0.75rem; font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.2px;
+}
+
+/* ── Mobile: spring-up animation on scroll into view ── */
+@keyframes caption-spring {
+  0%   { transform: translateY(100%); }
+  65%  { transform: translateY(-6px); }
+  82%  { transform: translateY(3px);  }
+  100% { transform: translateY(0);    }
+}
+
+@media (max-width: 768px) {
+  /* Override hover — use scroll trigger instead */
+  .gallery-card:hover .gallery-card-caption {
+    transform: translateY(100%);
+  }
+  .gallery-card.in-view .gallery-card-caption {
+    animation: caption-spring 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  /* Tag slightly smaller on mobile */
+  .gallery-card-tag { font-size: 0.58rem; padding: 3px 8px; }
+}
+
+/* ── Dot indicators ── */
+.gallery-dots {
+  display: flex; justify-content: center;
+  align-items: center; gap: 8px;
+  padding: 14px 0 4px;
+}
+.gallery-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(0,96,100,0.2);
+  padding: 0;
+  transition: background 0.25s, width 0.25s, border-radius 0.25s;
+}
+.gallery-dot.active {
+  background: #006064;
+  width: 28px;
+  border-radius: 5px;
+}
+.gallery-dot:hover:not(.active) {
+  background: #00BCD4;
+  transform: scale(1.2);
+}

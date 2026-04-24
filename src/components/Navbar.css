@@ -1,0 +1,135 @@
+/* ── Dark navbar ── */
+.navbar {
+  position: sticky; top: 0; z-index: 300;
+  background: #0D1B2A;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 0 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 82px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* ── Logo ── */
+.nav-logo {
+  display: flex; align-items: center; gap: 14px;
+  cursor: pointer; flex-shrink: 0;
+}
+.logo-text-block { display: flex; flex-direction: column; }
+.logo-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 800; font-size: 2.1rem;
+  color: #FFFFFF; letter-spacing: 3px;
+  white-space: nowrap; line-height: 1.1;
+}
+.logo-rule {
+  height: 1.5px;
+  background: linear-gradient(to right, rgba(0,188,212,0.7), transparent);
+  margin: 3px 0 2px; border-radius: 1px;
+}
+.logo-tagline {
+  font-size: 0.7rem; color: rgba(255,255,255,0.45);
+  font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; line-height: 1;
+}
+
+/* ── Desktop nav links ── */
+.nav-links { display: flex; gap: 1.8rem; }
+.nav-link {
+  background: none; border: none; cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  color: rgba(255,255,255,0.82); font-weight: 600; font-size: 0.9rem;
+  padding: 6px 0; border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-link:hover { color: #00BCD4; border-color: #00BCD4; }
+
+/* ── Desktop CTA ── */
+.nav-cta {
+  background: linear-gradient(135deg, #FF6F00, #FFA726);
+  color: white; border: none; padding: 10px 24px;
+  border-radius: 50px; font-family: 'Nunito', sans-serif;
+  font-weight: 700; font-size: 0.9rem; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255,111,0,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,111,0,0.45); }
+
+/* ── Hamburger — hidden on desktop ── */
+.hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  background: none; border: none; cursor: pointer;
+  padding: 4px; flex-shrink: 0;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 2.5px;
+  background: #fff; border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s, width 0.3s;
+  transform-origin: center;
+}
+/* Animate to ✕ */
+.hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+/* ── Mobile slide-down menu ── */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  background: #0D1B2A;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  flex-direction: column;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.3s ease;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+}
+.mobile-menu.open {
+  max-height: 500px;
+  padding: 0.75rem 0 1rem;
+}
+.mobile-nav-link {
+  background: none; border: none; cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  color: rgba(255,255,255,0.75); font-weight: 600; font-size: 1rem;
+  padding: 14px 2rem;
+  text-align: left; width: 100%;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: background 0.2s, color 0.2s;
+}
+.mobile-nav-link:hover { background: rgba(0,188,212,0.1); color: #00BCD4; }
+
+.mobile-call-btn {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0.75rem 1.5rem 0;
+  background: linear-gradient(135deg, #00BCD4, #006064);
+  color: white; text-decoration: none;
+  padding: 13px 20px; border-radius: 50px;
+  font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,188,212,0.3);
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+}
+
+@media (max-width: 960px) {
+  .navbar { justify-content: flex-start; }
+  .hamburger { display: flex; order: -1; margin-right: 4px; }
+  .nav-logo { flex: 1; justify-content: flex-start; }
+  .mobile-menu { display: flex; }
+  .nav-cta { display: none; }
+}
+
+@media (max-width: 540px) {
+  .navbar { padding: 0 1rem; height: 68px; }
+  .logo-name { font-size: 1.5rem; letter-spacing: 1.5px; }
+}

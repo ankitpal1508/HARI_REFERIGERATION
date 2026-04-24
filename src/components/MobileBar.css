@@ -1,0 +1,92 @@
+/* ══════════════════════════════════════
+   BACK TO TOP — all screen sizes
+══════════════════════════════════════ */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 160px; /* above the two floating buttons on desktop */
+  z-index: 250;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: none; cursor: pointer;
+  background: #0D1B2A;
+  color: #00BCD4;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s, background 0.2s;
+}
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover { background: #00BCD4; color: white; }
+
+/* ══════════════════════════════════════
+   MOBILE BOTTOM ACTION BAR
+   Only visible on mobile (≤ 768px)
+══════════════════════════════════════ */
+.mobile-bar {
+  display: none; /* hidden by default — shown only on mobile via media query */
+}
+
+@media (max-width: 768px) {
+  /* Show the mobile bar */
+  .mobile-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 250;
+    background: #0D1B2A;
+    border-top: 1px solid rgba(0,188,212,0.25);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+    height: 64px;
+  }
+
+  /* Each button takes equal width */
+  .mbar-btn {
+    flex: 1;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 4px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.68rem; font-weight: 700;
+    text-decoration: none;
+    border: none; cursor: pointer;
+    background: transparent;
+    transition: background 0.2s;
+    padding: 0;
+    letter-spacing: 0.3px;
+  }
+  .mbar-btn:active { background: rgba(255,255,255,0.06); }
+
+  /* Call — teal */
+  .mbar-call {
+    color: #4DD0E1;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .mbar-call:hover { color: #00BCD4; }
+
+  /* WhatsApp — green */
+  .mbar-whatsapp {
+    color: #4ADE80;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .mbar-whatsapp:hover { color: #22C55E; }
+
+  /* Book Service — orange */
+  .mbar-book {
+    color: #FFA726;
+  }
+  .mbar-book:hover { color: #FF6F00; }
+
+  /* Back to top repositioned above the bar on mobile */
+  .back-to-top {
+    bottom: 76px; /* sits just above the 64px mobile bar */
+    right: 16px;
+    width: 38px; height: 38px;
+  }
+}

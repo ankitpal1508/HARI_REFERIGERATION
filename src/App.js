@@ -12,10 +12,17 @@ import Footer          from './components/Footer';
 import MobileBar       from './components/MobileBar';
 import BookingNudge    from './components/BookingNudge';
 import LazySection     from './components/LazySection';
+import ScrollProgress  from './components/ScrollProgress';
+import ScrollReveal    from './components/ScrollReveal';
+import CursorFX        from './components/CursorFX';
+import InstallPrompt   from './components/InstallPrompt';
 
 export default function App() {
   return (
     <>
+      <ScrollProgress />
+      <CursorFX />
+      <ScrollReveal />
       <Navbar />
       <BookingNudge />
       <Hero />
@@ -35,6 +42,7 @@ export default function App() {
       </div>
       <Footer />
       <MobileBar />
+      <InstallPrompt />
     </>
   );
 }

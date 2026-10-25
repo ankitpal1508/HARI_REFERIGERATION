@@ -41,20 +41,41 @@ export default function BrandScroller() {
   const resumeTimer = useRef(null);
 
   // ── RAF auto-scroll ──
+  // Time-based (not per-frame) so speed is identical on every screen, and it matches
+  // the review ticker above: that track moves half its width in 40s (see Testimonials.css).
   useEffect(() => {
     const el = outerRef.current;
     if (!el) return;
-    const tick = () => {
-      if (!isDragging.current) {
-        el.scrollLeft += 0.7;
-        if (el.scrollLeft >= el.scrollWidth / 2) {
-          el.scrollLeft -= el.scrollWidth / 2;
-        }
+    const reviewSpeed = () => {
+      const track = document.querySelector('.testi-ticker-track');
+      return track ? track.scrollWidth / 2 / 40 : 48; // px per second
+    };
+    let speed = reviewSpeed();
+    let pos = el.scrollLeft;   // float position; scrollLeft itself may round
+    let resync = false;        // re-read scrollLeft after a drag / arrow jump
+    let last = 0;
+    const onResize = () => { speed = reviewSpeed(); };
+    window.addEventListener('resize', onResize);
+
+    const tick = (ts) => {
+      const dt = last ? Math.min((ts - last) / 1000, 0.1) : 0;
+      last = ts;
+      if (isDragging.current) {
+        resync = true;
+      } else {
+        if (resync) { pos = el.scrollLeft; resync = false; }
+        const half = el.scrollWidth / 2;
+        pos += speed * dt;
+        if (pos >= half) pos -= half;
+        el.scrollLeft = pos;
       }
       rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      window.removeEventListener('resize', onResize);
+    };
   }, []);
 
   const pauseAutoScroll = () => {

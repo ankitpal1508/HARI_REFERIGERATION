@@ -1,6 +1,6 @@
 .booking-nudge {
   position: fixed;
-  top: 62px; /* below navbar */
+  top: 82px; /* below navbar (82px; 68px on small screens) */
   left: 0; right: 0;
   z-index: 290;
   background: linear-gradient(135deg, #006064, #0097A7);
@@ -88,4 +88,8 @@
 @media (max-width: 480px) {
   .booking-nudge { font-size: 0.8rem; gap: 8px; padding: 8px 12px; }
   .nudge-text { font-size: 0.78rem; }
+}
+
+@media (max-width: 540px) {
+  .booking-nudge { top: 68px; }
 }

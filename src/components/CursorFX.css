@@ -1,0 +1,29 @@
+.cursor-canvas {
+  position: fixed; inset: 0; width: 100vw; height: 100vh;
+  pointer-events: none; z-index: 5000;
+}
+.cursor-ring {
+  position: fixed; top: 0; left: 0; z-index: 5001; pointer-events: none;
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1.5px solid rgba(0, 188, 212, 0.9);
+  background: radial-gradient(circle, rgba(0,188,212,0.14), transparent 70%);
+  opacity: 0; will-change: transform;
+  transition: opacity 0.25s, width 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              height 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.2s, background 0.2s;
+}
+.cursor-ring.on { opacity: 1; }
+/* hidden while text is selected / being copied */
+.cursor-ring.on.hide { opacity: 0; }
+/* over buttons, links and cards: grows and turns warm */
+.cursor-ring.is-link {
+  width: 58px; height: 58px; border-color: rgba(255, 111, 0, 0.9);
+  background: radial-gradient(circle, rgba(255,167,38,0.22), transparent 70%);
+}
+/* over form fields: narrows to a caret-like bar */
+.cursor-ring.is-text { width: 4px; height: 26px; border-radius: 3px; border-color: var(--cold); background: var(--cold); }
+.cursor-ring.is-down { width: 22px; height: 22px; }
+.cursor-ring.is-link.is-down { width: 44px; height: 44px; }
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-ring, .cursor-canvas { display: none; }
+}

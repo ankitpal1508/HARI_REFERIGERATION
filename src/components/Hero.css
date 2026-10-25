@@ -1,7 +1,101 @@
 /* ── Wrapper ── */
 .hero-wrapper {
+  position: relative; overflow: hidden;
   background: linear-gradient(135deg, #f0fafa 0%, #e8f5e9 50%, #fff8e1 100%);
 }
+/* Slow drifting colour blobs behind the hero */
+.hero-wrapper::before, .hero-wrapper::after {
+  content: ''; position: absolute; border-radius: 50%;
+  filter: blur(70px); opacity: 0.5; pointer-events: none;
+}
+.hero-wrapper::before {
+  width: 380px; height: 380px; top: -120px; left: -80px;
+  background: rgba(0,188,212,0.35);
+  animation: blobDrift 14s ease-in-out infinite alternate;
+}
+.hero-wrapper::after {
+  width: 320px; height: 320px; bottom: -120px; right: -60px;
+  background: rgba(255,167,38,0.3);
+  animation: blobDrift 17s ease-in-out infinite alternate-reverse;
+}
+@keyframes blobDrift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(60px, 40px) scale(1.2); }
+}
+.hero { position: relative; z-index: 1; }
+
+/* ── Page-load entrance: hero copy cascades in ── */
+.hero-content.fade-in { opacity: 1; }
+.hero-content.fade-in.visible { animation: none; }
+.hero-content > * {
+  animation: heroIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+.hero-content > :nth-child(1) { animation-delay: 0.10s; }
+.hero-content > :nth-child(2) { animation-delay: 0.22s; }
+.hero-content > :nth-child(3) { animation-delay: 0.34s; }
+.hero-content > :nth-child(4) { animation-delay: 0.46s; }
+.hero-content > :nth-child(5) { animation-delay: 0.58s; }
+.hero-content > :nth-child(6) { animation-delay: 0.70s; }
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(28px); filter: blur(5px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+
+/* Orange accent line shimmers */
+.hero h1 .accent {
+  background: linear-gradient(90deg, #FF6F00, #FFA726, #FF6F00);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: accentShimmer 4s linear infinite;
+}
+@keyframes accentShimmer { to { background-position: -200% 0; } }
+
+/* Soft pulse on the primary CTA and panel dot */
+.btn-primary { animation: ctaPulse 2.8s ease-in-out 1.6s infinite; }
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 6px 22px rgba(0,188,212,0.35); }
+  50%      { box-shadow: 0 6px 34px rgba(0,188,212,0.6); }
+}
+.panel-dot { animation: dotPulse 1.8s ease-out infinite; }
+@keyframes dotPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(0,188,212,0.7); }
+  100% { box-shadow: 0 0 0 10px rgba(0,188,212,0); }
+}
+
+/* Service panel slides in from the right, cards float gently */
+.hero-visual.fade-in { opacity: 1; }
+.hero-visual.fade-in.visible { animation: panelIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s backwards; }
+@keyframes panelIn {
+  from { opacity: 0; transform: translateX(60px) rotate(1.5deg) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+.mini-card { animation: cardFloat 5s ease-in-out infinite; }
+.mini-card:nth-child(1) { animation-delay: 0s; }
+.mini-card:nth-child(2) { animation-delay: -1.2s; }
+.mini-card:nth-child(3) { animation-delay: -2.4s; }
+.mini-card:nth-child(4) { animation-delay: -3.6s; }
+@keyframes cardFloat {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -6px; }
+}
+
+/* ── Scroll parallax: layers drift at different speeds as the hero leaves ── */
+.hero-wrapper::before { translate: calc(var(--hero-p, 0) * -90px) calc(var(--hero-p, 0) * 200px); }
+.hero-wrapper::after  { translate: calc(var(--hero-p, 0) * 120px) calc(var(--hero-p, 0) * -140px); }
+.hero-content {
+  translate: 0 calc(var(--hero-p, 0) * -50px);
+  opacity: calc(1 - var(--hero-p, 0) * 0.7);
+}
+.hero-visual {
+  translate: 0 calc(var(--hero-p, 0) * 70px);
+  scale: calc(1 - var(--hero-p, 0) * 0.06);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-wrapper::before, .hero-wrapper::after,
+  .hero-content, .hero-visual { translate: none; scale: none; opacity: 1; }
+}
+
 .hero {
   max-width: 1160px; margin: 0 auto;
   padding: 3rem 2rem 3rem;

@@ -19,7 +19,7 @@ export const SITE_CONFIG = {
   email:         "hari.refrigeration@gmail.com",
   address:       "Shop-11, Near CBD Bus Depot, Opposite MGM Hospital, Sector 6, CBD Belapur, Navi Mumbai – 400614",
   serviceArea:   "Belapur (Headoffice), Seawoods, Nerul, Kharghar, Kamothe, Kalamboli, Ulwe, Juinagar, Sanpada, Vashi",
-  foundedYear:   "2004",
+  foundedYear:   "2000",
   googleRating:  "5.0",
   totalReviews:  "6",
 
@@ -36,6 +36,9 @@ export const SITE_CONFIG = {
   formspreeId: "mjgjjwaz",
   whatsappMsg: "Hi%2C+I+need+appliance+repair+service.",
   mapUrl:      "https://maps.google.com/?q=Hari+Refrigeration+Shop+11+CBD+Belapur+Navi+Mumbai",
+  // Direct "write a review" link. Get it from Google Business Profile → "Ask for reviews"
+  // (looks like https://g.page/r/XXXX/review). Until set, the Maps listing is opened instead.
+  reviewUrl:   "",
 };
 
 // ============================================================
@@ -107,7 +110,7 @@ export const REMOTE_BRANDS = [
 //  WHY CHOOSE US
 // ============================================================
 export const WHY_US = [
-  { num: "20+",  title: "Years of Experience",  desc: "Deep expertise across all major appliance brands and models since 2004." },
+  { num: "20+",  title: "Years of Experience",  desc: "Deep expertise across all major appliance brands and models since 2000." },
   { num: "24hr", title: "Fast Response",         desc: "Same-day service available. We come to your home, office or shop." },
   { num: "90%",  title: "First-Visit Fix Rate",  desc: "Well-stocked service van means most repairs are done in one visit." },
   { num: "✓",   title: "Genuine Spare Parts",   desc: "Original or OEM parts only. Repair warranty included on all jobs." },

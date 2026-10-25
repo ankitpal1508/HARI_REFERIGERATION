@@ -1,0 +1,22 @@
+.install-pill {
+  position: fixed; left: 16px; bottom: 16px; z-index: 400;
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 8px 6px 8px; border-radius: 50px;
+  background: var(--dark); color: white;
+  box-shadow: 0 8px 28px rgba(13, 27, 42, 0.35);
+  animation: installIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1s backwards;
+}
+.install-pill img { border-radius: 8px; }
+.install-go {
+  background: linear-gradient(135deg, var(--cold), var(--deep));
+  color: white; border: none; cursor: pointer;
+  padding: 8px 16px; border-radius: 50px;
+  font: 700 0.85rem 'Nunito', sans-serif;
+}
+.install-x {
+  background: rgba(255,255,255,0.12); color: white; border: none; cursor: pointer;
+  width: 26px; height: 26px; border-radius: 50%; font-size: 0.7rem;
+}
+@keyframes installIn { from { opacity: 0; transform: translateY(20px); } }
+/* sit above the fixed mobile action bar */
+@media (max-width: 768px) { .install-pill { bottom: 78px; } }

@@ -130,7 +130,7 @@ export default function Hero() {
 
         {/* ── LEFT: copy ── */}
         <div className="hero-content fade-in">
-          <div className="hero-badge">⭐ Navi Mumbai's Trusted Repair Experts Since 2004</div>
+          <div className="hero-badge">⭐ Navi Mumbai's Trusted Repair Experts Since 2000</div>
 
           <h1>
             Fast &amp; Reliable<br/>

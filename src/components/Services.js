@@ -11,9 +11,9 @@ function IconAC() {
       <rect x="10" y="16" width="16" height="10" rx="3" fill="#B2EBF2"/>
       <circle cx="18" cy="21" r="4" fill="#00BCD4"/>
       <circle cx="18" cy="21" r="2" fill="#fff"/>
-      <line x1="30" y1="17" x2="56" y2="17" stroke="#0097A7" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="30" y1="22" x2="56" y2="22" stroke="#0097A7" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="30" y1="27" x2="56" y2="27" stroke="#0097A7" strokeWidth="2" strokeLinecap="round"/>
+      <line className="ac-air" x1="30" y1="17" x2="56" y2="17" stroke="#0097A7" strokeWidth="2" strokeLinecap="round"/>
+      <line className="ac-air" x1="30" y1="22" x2="56" y2="22" stroke="#0097A7" strokeWidth="2" strokeLinecap="round"/>
+      <line className="ac-air" x1="30" y1="27" x2="56" y2="27" stroke="#0097A7" strokeWidth="2" strokeLinecap="round"/>
       <line x1="18" y1="38" x2="18" y2="46" stroke="#0097A7" strokeWidth="2" strokeLinecap="round"/>
       <line x1="32" y1="38" x2="32" y2="46" stroke="#0097A7" strokeWidth="2" strokeLinecap="round"/>
       <line x1="46" y1="38" x2="46" y2="46" stroke="#0097A7" strokeWidth="2" strokeLinecap="round"/>
@@ -27,11 +27,11 @@ function IconFridge() {
     <svg viewBox="0 0 44 70" fill="none" width="38" height="60">
       <rect x="4" y="2" width="36" height="66" rx="6" fill="#E0F7FA" stroke="#00695C" strokeWidth="2.2"/>
       <line x1="4" y1="26" x2="40" y2="26" stroke="#00695C" strokeWidth="2"/>
-      <rect x="4" y="2" width="36" height="24" rx="6" fill="#B2DFDB"/>
+      <rect className="fr-top" x="4" y="2" width="36" height="24" rx="6" fill="#B2DFDB"/>
       {/* Freezer handle */}
-      <line x1="30" y1="10" x2="30" y2="20" stroke="#00695C" strokeWidth="3" strokeLinecap="round"/>
+      <line className="ac-air" x1="30" y1="10" x2="30" y2="20" stroke="#00695C" strokeWidth="3" strokeLinecap="round"/>
       {/* Fridge handle */}
-      <line x1="30" y1="36" x2="30" y2="56" stroke="#00695C" strokeWidth="3" strokeLinecap="round"/>
+      <line className="ac-air" x1="30" y1="36" x2="30" y2="56" stroke="#00695C" strokeWidth="3" strokeLinecap="round"/>
       {/* Inner shelf lines */}
       <line x1="10" y1="44" x2="34" y2="44" stroke="#80CBC4" strokeWidth="1.5" strokeDasharray="3 2"/>
       <line x1="10" y1="54" x2="34" y2="54" stroke="#80CBC4" strokeWidth="1.5" strokeDasharray="3 2"/>
@@ -52,7 +52,7 @@ function IconWasher() {
       {/* Glass window */}
       <circle cx="29" cy="37" r="13" fill="#E3F2FD" stroke="#1976D2" strokeWidth="1.5"/>
       {/* Drum highlight */}
-      <circle cx="29" cy="37" r="7" fill="none" stroke="#90CAF9" strokeWidth="1.5" strokeDasharray="3 2"/>
+      <circle className="wm-drum" cx="29" cy="37" r="7" fill="none" stroke="#90CAF9" strokeWidth="1.5" strokeDasharray="3 2"/>
       <circle cx="29" cy="37" r="2.5" fill="#1565C0"/>
     </svg>
   );
@@ -65,9 +65,9 @@ function IconMicrowave() {
       {/* Door */}
       <rect x="8" y="9" width="42" height="30" rx="5" fill="#EDE7F6" stroke="#7B1FA2" strokeWidth="1.8"/>
       {/* Window */}
-      <rect x="12" y="13" width="34" height="22" rx="3" fill="#F3E5F5"/>
+      <rect className="mw-glass" x="12" y="13" width="34" height="22" rx="3" fill="#F3E5F5"/>
       {/* Turntable */}
-      <circle cx="29" cy="24" r="9" stroke="#AB47BC" strokeWidth="1.5" strokeDasharray="4 2.5" fill="none"/>
+      <circle className="mw-turn" cx="29" cy="24" r="9" stroke="#AB47BC" strokeWidth="1.5" strokeDasharray="4 2.5" fill="none"/>
       <circle cx="29" cy="24" r="3" fill="#CE93D8"/>
       {/* Door handle */}
       <line x1="45" y1="17" x2="45" y2="23" stroke="#7B1FA2" strokeWidth="3.5" strokeLinecap="round"/>
@@ -87,15 +87,15 @@ function IconWaterPurifier() {
       {/* Tank */}
       <rect x="12" y="6" width="20" height="22" rx="4" fill="#B3E5FC"/>
       {/* Filters */}
-      <rect x="11" y="32" width="6" height="16" rx="3" fill="#0288D1"/>
-      <rect x="19" y="32" width="6" height="16" rx="3" fill="#03A9F4"/>
-      <rect x="27" y="32" width="6" height="16" rx="3" fill="#4FC3F7"/>
+      <rect className="wp-f" x="11" y="32" width="6" height="16" rx="3" fill="#0288D1"/>
+      <rect className="wp-f" x="19" y="32" width="6" height="16" rx="3" fill="#03A9F4"/>
+      <rect className="wp-f" x="27" y="32" width="6" height="16" rx="3" fill="#4FC3F7"/>
       {/* Output pipe */}
       <line x1="22" y1="54" x2="22" y2="62" stroke="#0277BD" strokeWidth="2.5" strokeLinecap="round"/>
       {/* Tap */}
       <path d="M16 62 Q22 62 28 62" stroke="#0277BD" strokeWidth="3" strokeLinecap="round"/>
       {/* Water drop */}
-      <path d="M22 64 Q20 66 22 68 Q24 66 22 64Z" fill="#03A9F4"/>
+      <path className="wp-drop" d="M22 64 Q20 66 22 68 Q24 66 22 64Z" fill="#03A9F4"/>
     </svg>
   );
 }
@@ -115,7 +115,7 @@ function IconChiller() {
       <rect x="19" y="56" width="12" height="4" rx="2" fill="#006064"/>
       <circle cx="25" cy="58" r="2" fill="#00838F"/>
       {/* Water level */}
-      <rect x="14" y="38" width="22" height="15" rx="3" fill="#80DEEA"/>
+      <rect className="ch-level" x="14" y="38" width="22" height="15" rx="3" fill="#80DEEA"/>
     </svg>
   );
 }
@@ -129,10 +129,12 @@ function IconCooler() {
       {/* Fan circle */}
       <circle cx="29" cy="38" r="18" fill="#DCEDC8" stroke="#43A047" strokeWidth="2"/>
       {/* Fan blades */}
+      <g className="co-fan">
       <path d="M29 20 Q36 29 29 38 Q22 29 29 20Z" fill="#66BB6A" opacity="0.7"/>
       <path d="M47 38 Q38 45 29 38 Q38 31 47 38Z" fill="#66BB6A" opacity="0.7"/>
       <path d="M29 56 Q22 47 29 38 Q36 47 29 56Z" fill="#66BB6A" opacity="0.7"/>
       <path d="M11 38 Q20 31 29 38 Q20 45 11 38Z" fill="#66BB6A" opacity="0.7"/>
+      </g>
       {/* Center hub */}
       <circle cx="29" cy="38" r="5" fill="#2E7D32"/>
       <circle cx="29" cy="38" r="2.5" fill="#A5D6A7"/>
@@ -147,6 +149,7 @@ function IconMaintenance() {
   return (
     <svg viewBox="0 0 60 60" fill="none" width="54" height="54">
       {/* Wrench */}
+      <g className="mt-tool">
       <path d="M10 50 L32 28 Q38 18 46 16 Q42 22 44 28 L22 50 Q16 56 10 50Z"
         fill="#FFF9C4" stroke="#F57F17" strokeWidth="2.2" strokeLinejoin="round"/>
       <circle cx="45" cy="17" r="8" fill="none" stroke="#F9A825" strokeWidth="2.2"/>
@@ -155,7 +158,9 @@ function IconMaintenance() {
       <line x1="44" y1="14" x2="20" y2="38" stroke="#FFB300" strokeWidth="4" strokeLinecap="round"/>
       <rect x="15" y="36" width="10" height="7" rx="2"
         fill="#FF8F00" transform="rotate(-45 20 39)"/>
+      </g>
       {/* Gear */}
+      <g className="mt-gear">
       <circle cx="46" cy="44" r="10" fill="#FFF9C4" stroke="#F57F17" strokeWidth="2"/>
       <circle cx="46" cy="44" r="5" fill="#FFB300"/>
       {[0,45,90,135,180,225,270,315].map((deg, i) => {
@@ -166,6 +171,7 @@ function IconMaintenance() {
           fill="#F57F17"
           transform={`rotate(${deg} ${46 + 8*Math.cos(r)} ${44 + 8*Math.sin(r)})`}/>;
       })}
+      </g>
     </svg>
   );
 }
@@ -182,8 +188,56 @@ const SERVICE_ICONS = [
   <IconMaintenance />,
 ];
 
+// Per-card identity: CSS hook, accent colour and what the click burst throws out
+const KINDS = ['ac', 'fridge', 'washer', 'mw', 'purifier', 'chiller', 'cooler', 'maint'];
+const ACCENTS = ['#0097A7', '#00695C', '#1565C0', '#7B1FA2', '#0288D1', '#00838F', '#2E7D32', '#F57F17'];
+const BURSTS = [
+  { emoji: ['❄️', '💨', '❄️'], mode: 'rise' },
+  { emoji: ['🧊', '❄️'],       mode: 'radial' },
+  { emoji: ['🫧', '💧', '🫧'], mode: 'rise' },
+  { emoji: ['✨', '🔥', '✨'], mode: 'radial' },
+  { emoji: ['💧', '💦'],       mode: 'fall' },
+  { emoji: ['🧊', '💦'],       mode: 'radial' },
+  { emoji: ['🍃', '💨', '🍃'], mode: 'side' },
+  { emoji: ['⚙️', '🔧', '✨'], mode: 'radial' },
+];
+
+const rand = (a, b) => a + Math.random() * (b - a);
+const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function spawn(card, cls, x, y, style = {}, text = '') {
+  const el = document.createElement('span');
+  el.className = cls;
+  el.textContent = text;
+  el.style.left = `${x}px`;
+  el.style.top = `${y}px`;
+  Object.entries(style).forEach(([k, v]) => el.style.setProperty(k, v));
+  el.addEventListener('animationend', () => el.remove());
+  card.appendChild(el);
+}
+
+function burst(card, i, x, y) {
+  spawn(card, 'svc-ripple', x, y);
+  if (card.querySelectorAll('.svc-particle').length > 36) return;
+  const { emoji, mode } = BURSTS[i];
+  for (let n = 0; n < 12; n++) {
+    const a = rand(0, Math.PI * 2);
+    const d = rand(50, 110);
+    let dx = Math.cos(a) * d, dy = Math.sin(a) * d;
+    if (mode === 'rise') { dx = rand(-45, 45); dy = -rand(60, 140); }
+    if (mode === 'fall') { dx = rand(-30, 30); dy = rand(60, 140); }
+    if (mode === 'side') { dx = rand(70, 180); dy = rand(-25, 25); }
+    spawn(card, 'svc-particle', x, y, {
+      '--dx': `${dx}px`, '--dy': `${dy}px`, '--rot': `${rand(-200, 200)}deg`,
+      fontSize: `${rand(14, 24)}px`, animationDelay: `${rand(0, 0.12)}s`,
+    }, emoji[n % emoji.length]);
+  }
+}
+
 export default function Services() {
   const ref = useRef();
+  const timers = useRef(new WeakMap());
+
   useEffect(() => {
     const obs = new IntersectionObserver(
       e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }),
@@ -192,6 +246,73 @@ export default function Services() {
     ref.current?.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
     return () => obs.disconnect();
   }, []);
+
+  // Scroll-linked card depth: --sp is -1 (card entering/leaving) … 0 (centred) … 1,
+  // consumed by the parallax + light-sweep rules in Services.css
+  useEffect(() => {
+    const root = ref.current;
+    const cards = [...root.querySelectorAll('.svc')];
+    let inView = false, raf = 0;
+    const update = () => {
+      raf = 0;
+      const h = window.innerHeight;
+      cards.forEach(c => {
+        const r = c.getBoundingClientRect();
+        const sp = Math.max(-1, Math.min(1, (r.top + r.height / 2 - h / 2) / (h / 2)));
+        c.style.setProperty('--sp', sp.toFixed(3));
+      });
+    };
+    const onScroll = () => { if (inView && !raf) raf = requestAnimationFrame(update); };
+    const vis = new IntersectionObserver(([e]) => { inView = e.isIntersecting; onScroll(); });
+    vis.observe(root);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      vis.disconnect();
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  const onEnter = (e) => { if (e.pointerType === 'mouse') e.currentTarget.classList.add('is-hover'); };
+
+  // Cursor drives a 3D tilt, a spotlight and a small "magnet" pull on the icon
+  const onMove = (e) => {
+    if (e.pointerType !== 'mouse' || reduceMotion()) return;
+    const el = e.currentTarget;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width;
+    const py = (e.clientY - r.top) / r.height;
+    el.style.setProperty('--mx', `${px * 100}%`);
+    el.style.setProperty('--my', `${py * 100}%`);
+    el.style.setProperty('--rx', `${((0.5 - py) * 14).toFixed(2)}deg`);
+    el.style.setProperty('--ry', `${((px - 0.5) * 14).toFixed(2)}deg`);
+    el.style.setProperty('--ix', `${((px - 0.5) * 12).toFixed(1)}px`);
+    el.style.setProperty('--iy', `${((py - 0.5) * 12).toFixed(1)}px`);
+  };
+
+  const onLeave = (e) => {
+    const el = e.currentTarget;
+    el.classList.remove('is-hover', 'is-press');
+    ['--rx', '--ry', '--ix', '--iy'].forEach(k => el.style.removeProperty(k));
+  };
+
+  // Click: the appliance "switches on" (intense icon animation) and throws themed particles
+  const onDown = (e, i) => {
+    const el = e.currentTarget;
+    el.classList.add('is-press');
+    if (reduceMotion()) return;
+    const r = el.getBoundingClientRect();
+    burst(el, i, e.clientX - r.left, e.clientY - r.top);
+    el.classList.remove('is-active');
+    void el.offsetWidth; // restart the icon animations on rapid clicks
+    el.classList.add('is-active');
+    clearTimeout(timers.current.get(el));
+    timers.current.set(el, setTimeout(() => el.classList.remove('is-active'), 1400));
+  };
+
+  const onUp = (e) => e.currentTarget.classList.remove('is-press');
 
   return (
     <div id="services" className="services-bg">
@@ -206,8 +327,14 @@ export default function Services() {
           {SERVICES.map((s, i) => (
             <div
               key={i}
-              className="svc fade-in"
-              style={{ transitionDelay: `${i * 0.08}s` }}
+              className={`svc svc--${KINDS[i]} fade-in`}
+              style={{ '--accent': ACCENTS[i] }}
+              onPointerEnter={onEnter}
+              onPointerMove={onMove}
+              onPointerLeave={onLeave}
+              onPointerDown={(e) => onDown(e, i)}
+              onPointerUp={onUp}
+              onPointerCancel={onUp}
             >
               <div className="svc-icon">
                 {SERVICE_ICONS[i] || <span style={{ fontSize: '2.8rem' }}>{s.icon}</span>}

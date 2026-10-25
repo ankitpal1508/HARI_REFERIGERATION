@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { SITE_CONFIG } from '../config';
+import ReviewCard from './ReviewCard';
 import './Contact.css';
 
 // ── Claude AI Chat Assistant ──────────────────────────────────────────────────
@@ -191,7 +192,8 @@ export default function Contact() {
           <AIAssistant />
         </div>
 
-        {/* Right: query form */}
+        {/* Right: query form + review prompt */}
+        <div className="contact-right">
         <div className="query-form fade-in">
           <h3>📬 Send Us Your Query</h3>
           <form onSubmit={handleSubmit}>
@@ -232,6 +234,8 @@ export default function Contact() {
             {status === 'done'  && <div className="form-success">✅ Query sent! We will contact you shortly.</div>}
             {status === 'error' && <div className="form-error">❌ Error sending. Please call us directly.</div>}
           </form>
+        </div>
+        <ReviewCard />
         </div>
 
       </div>
